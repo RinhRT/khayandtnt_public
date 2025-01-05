@@ -29,8 +29,8 @@ Dự án được chia thành hai thư mục chính:
 
 #### Bước 1: Clone Dự Án
 ```bash
-git clone https://github.com/your-repo-url/project-name.git
-cd project-name
+git clone https://github.com/RinhRT/khayandtnt_public
+cd khayandtnt_public
 ```
 
 #### Bước 2: Cài Đặt Phụ Thuộc
@@ -75,7 +75,7 @@ Khởi động frontend:
 cd ../frontend
 npm run dev
 ```
-Frontend sẽ chạy tại `http://localhost:5173 và backend tại `http://localhost:8080`.
+Frontend sẽ chạy tại `http://localhost:5173` và backend tại `http://localhost:8080`.
 
 ### 2. Sử Dụng Hệ Thống
 
