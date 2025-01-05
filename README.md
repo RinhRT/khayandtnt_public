@@ -1,4 +1,4 @@
-# Dự Án Quản Lý Khay
+# Dự Án Phần Mềm Quản Lý Khay Ăn Học Sinh
 
 ## Giới Thiệu Dự Án
 Dự án của chúng tôi được thiết kế để kiểm tra và quản lý tình trạng khay trong các môi trường nội trú và bán trú. Hệ thống giúp ghi nhận chi tiết thời gian nhận và trả khay, hỗ trợ quản lý hiệu quả.
