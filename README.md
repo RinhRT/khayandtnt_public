@@ -25,7 +25,7 @@ Dự án được chia thành hai thư mục chính:
 ### 1. Cài Đặt Dự Án
 
 #### Yêu Cầu Hệ Thống
-- Node.js, MongoDB, Git đã cài đặt.
+- Node.js (khuyến nghị nên dùng phiên bản v23.5.0), MongoDB, Git đã cài đặt.
 
 #### Bước 1: Clone Dự Án
 ```bash
