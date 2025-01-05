@@ -65,12 +65,12 @@ VITE_API_URL=http://localhost:8080
 ```
 
 #### Bước 5: Khởi Động Dự Án
-Khởi động backend:
+Khởi động backend (chế độ dev mode):
 ```bash
 cd backend
-npm start
+npm run dev
 ```
-Khởi động frontend:
+Khởi động frontend (chế độ dev mode):
 ```bash
 cd ../frontend
 npm run dev
