@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+/* Light mode (mặc định) */
+:root {
+  --bg-root: #ffffff;
+  --bg-header: #f6f8fa;
+  --text-primary: #24292e;
+  --text-secondary: #57606a;
+  --button-primary: #2da44e;
+  --button-secondary: #f3f4f6;
+  --border: #dbdde1;
+  --link: #0969da;
+  --bg-code: #f6f8fa;
+  --text-code: #24292e;
+  --button-hover: #0969da;
+  --highlight: #ffea7f;
+
+  /* Shadow cho Light Mode */
+  --box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow-button: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  --button-danger: #dc3545; /* Màu đỏ cơ bản cho nút nguy hiểm */
+  --button-danger-hover: #c82333; /* Màu đỏ đậm hơn khi hover */
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --bg-root: #0d1117;
+  --bg-header: #161b22;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --button-primary: #238636;
+  --button-secondary: #30363d;
+  --border: #30363d;
+  --link: #58a6ff;
+  --bg-code: #161b22;
+  --text-code: #d1d5da;
+  --button-hover: #1f6feb;
+  --highlight: #ffd33d;
+
+  /* Shadow cho Dark Mode */
+  --box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+  --box-shadow-button: 0px 4px 6px rgba(255, 255, 255, 0.2);
+  --border-bottom: 1px solid var(--border);
+  --button-danger: #dc3545; /* Màu đỏ cơ bản cho nút nguy hiểm */
+  --button-danger-hover: #c82333; /* Màu đỏ đậm hơn khi hover */
+}
+
+/* Áp dụng các biến và thêm hiệu ứng chuyển đổi */
+body {
+  background-color: var(--bg-root);
+  color: var(--text-primary);
+  /* overflow: hidden; */
+}
+
+.header {
+  background-color: var(--bg-header);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--box-shadow);
+}
+
+[data-theme="dark"] .header {
+  box-shadow: var(--box-shadow);
+}
+
+/* Button với shadow và hiệu ứng chuyển đổi */
+button.primary {
+  background-color: var(--button-primary);
+  color: #ffffff;
+  box-shadow: var(--box-shadow-button);
+}
+
+[data-theme="dark"] button.primary {
+  box-shadow: var(--box-shadow-button);
+}
+
+button.primary:hover {
+  background-color: var(--button-hover);
+}
+
+button.secondary {
+  background-color: var(--button-secondary);
+  color: var(--text-primary);
+  box-shadow: var(--box-shadow-button);
+}
+
+[data-theme="dark"] button.secondary {
+  box-shadow: var(--box-shadow-button);
+}
+
+/* Link với hiệu ứng chuyển đổi */
+a {
+  /* color: var(--link); */
+  text-decoration: none;
+}
+
+/* Code block với shadow và hiệu ứng chuyển đổi */
+.code-block {
+  background-color: var(--bg-code);
+  color: var(--text-code);
+  box-shadow: var(--box-shadow);
+}
+
+[data-theme="dark"] .code-block {
+  box-shadow: var(--box-shadow);
+}
+
+/* Highlighted text */
+.highlight {
+  background-color: var(--highlight);
+}
+
+
+/* Loading css when network slowly */
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.loading:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid var(--text-primary);
+  border-color: var(--text-primary) transparent var(--text-primary) transparent;
+  animation: spinner 1.2s linear infinite;
+}
+
+[data-theme="dark"] .loading:after {
+  border: 6px solid var(--text-primary);
+  border-color: var(--text-primary) transparent var(--text-primary) transparent;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* hoặc chiều cao của khung hình mà bạn muốn */
+}

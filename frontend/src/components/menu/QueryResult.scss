@@ -1,0 +1,218 @@
+.query-result {
+  position: relative;
+  padding: 20px;
+  margin: 0 auto;
+  width: 100%;
+  max-height: calc(100vh - 60px);
+  overflow-y: scroll; // Thêm cuộn dọc
+  overflow-x: hidden; // Loại bỏ cuộn ngang nếu không cần
+  scroll-behavior: smooth; // Cuộn mượt mà
+
+  // Tùy chỉnh thanh cuộn
+  ::-webkit-scrollbar {
+    width: 4px; // Chiều rộng thanh cuộn
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-root); // Màu nền của track
+    border-radius: 10px; // Bo góc
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border); // Màu thanh cuộn
+    border-radius: 4px; // Bo góc
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--button-secondary); // Màu khi hover
+  }
+
+  // Tương thích với Firefox
+  scrollbar-width: thin; // Thanh cuộn mỏng
+  scrollbar-color: var(--bg-header) var(--border); // Màu thanh cuộn và track
+}
+
+.search-bar {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+
+  input {
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    outline: none;
+  }
+}
+
+.query-result-container {
+  position: relative;
+  background-color: var(--bg-header); // Màu nền nổi bật hơn
+  color: var(--text-primary);
+  padding: 20px;
+  box-shadow: var(--box-shadow); // Thêm shadow cho chiều sâu
+  border-radius: 20px; // Bo viền 20px
+  margin-bottom: 20px; // Tạo khoảng cách giữa các container
+  transition: all 0.3s ease; // Thêm hiệu ứng cho chuyển động
+
+  &:hover {
+    box-shadow: var(--box-shadow-hover); // Thêm hiệu ứng shadow khi hover
+    transform: translateY(-5px); // Di chuyển nhẹ khi hover
+  }
+
+  .delete-button {
+    position: absolute;
+    width: 40px;
+    top: 10px;
+    right: 10px;
+    background-color: var(--button-danger);
+    color: white;
+    border: none;
+    padding: 8px 12px; // Tăng kích thước padding để dễ bấm hơn
+    font-size: 0.9em; // Điều chỉnh font-size để gọn hơn
+    cursor: pointer;
+    display: none; // Mặc định ẩn nút xóa
+    border-radius: 4px; // Bo tròn góc nút
+    box-shadow: var(--box-shadow); // Thêm hiệu ứng bóng
+    transition: all 0.3s ease; // Hiệu ứng chuyển đổi mượt
+
+    &:hover {
+      background-color: var(--button-danger-hover); // Thay đổi màu khi hover
+      transform: scale(1.1); // Phóng to nhẹ khi hover
+    }
+  }
+
+  &:hover {
+    .delete-button {
+      display: block; // Khi hover vào container, hiển thị nút xóa
+    }
+  }
+}
+
+.query-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+}
+
+.query-actions {
+  display: flex;
+  align-items: center;
+
+  .reset-button,
+  .apply-button {
+    background-color: var(--button-primary);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--button-hover);
+    }
+  }
+}
+
+.options-dropdown {
+  position: relative;
+
+  .options-button {
+    background-color: var(--button-secondary);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+}
+
+.query-details {
+  margin-bottom: 20px;
+
+  .query-item {
+    display: flex;
+    margin-bottom: 10px;
+
+    .field-name {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .field-value {
+      color: var(--text-secondary);
+      word-wrap: break-word;
+      cursor: pointer;
+    }
+  }
+}
+
+.input-field {
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  width: 200px;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: var(--button-primary); // Đổi màu border khi focus
+    outline: none; // Loại bỏ viền mặc định khi focus
+  }
+}
+
+.update-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+  .update-button {
+    background-color: var(--button-primary);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--button-hover);
+    }
+  }
+
+  .cancel-button {
+    background-color: var(--button-danger);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+
+    &:hover {
+      background-color: var(--button-danger-hover);
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .page-info {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+  }
+}

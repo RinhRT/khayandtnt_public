@@ -1,0 +1,155 @@
+.homePage {
+    position: relative;
+    display: grid;
+    grid-template-areas: 
+        'header header header'
+        'slide main main';
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh; /* Chiều cao toàn màn hình */
+
+    .header {
+        grid-area: header;
+    }
+
+    .slide {
+        grid-area: slide;
+    }
+
+    .main {
+        grid-area: main;
+        overflow-y: auto;
+    }
+}
+
+/* Điện thoại nhỏ (dưới 600px) */
+@media only screen and (max-width: 600px) {
+    .homePage {
+        display: flex;
+        flex-direction: column; /* Bố cục dọc */
+        min-height: 100vh; /* Đảm bảo chiều cao màn hình đầy đủ */
+    }
+
+    .header {
+        flex: 0 0 auto; /* Header giữ nguyên kích thước */
+    }
+
+    .main {
+        height: 100%;
+        flex: 1 0 auto; /* Main chiếm toàn bộ không gian còn lại */
+        overflow-y: auto;
+    }
+
+    .slide {
+        width: 100%;
+        position: fixed;  /* Đặt slide cố định ở chân trang */
+        bottom: 0; /* Đảm bảo slide dính vào chân trang */
+        left: 0;
+        right: 0;
+        z-index: 10; /* Đảm bảo slide nằm trên các phần khác */
+
+        display: flex;
+        justify-content: center;
+        padding-top: 0;
+
+        .item{
+            display: flex;
+            width: 100%;
+            min-width: 60px;
+            height: auto;
+            padding: 10px 20px;
+            font-size: 1.125em;
+            color: var(--text-primary);
+            transition: all .3s ease-in-out;
+            box-sizing: border-box;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+
+            span {
+                display: none;
+            }
+        }
+
+        .active .item {
+            color: var(--button-hover);
+            background-color: var(--button-secondary);
+            padding: 10px 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .item.camera-qrcode {
+            color: var(--highlight);
+            background-color: var(--button-primary);
+        }
+
+        @media (max-width: 600px) {
+            .toggle-mobile {
+                display: block;
+    
+                .item {
+                    width: 100%;
+                    height: 40px;
+                    padding: 10px 20px;
+                    font-size: 1.125em;
+                    color: var(--text-primary);
+                    transition: all .3s ease-in-out;
+                }
+            
+                .item:hover {
+                    cursor: pointer;
+                    background-color: var(--button-secondary);
+                    padding: 10px 20px;
+                    box-shadow: var(--box-shadow);
+                }
+            
+                .active .item {
+                    color: var(--button-hover);
+                    background-color: var(--button-secondary);
+                    padding: 10px 20px;
+                    box-shadow: var(--box-shadow);
+                }
+            }
+    
+            .menu-mobile {
+                display: none;
+            }
+    
+            .menu-mobile.open {
+                display: flex;
+                position: absolute;
+                right: 10px;
+                bottom: 50px;
+                background-color: var(--bg-header);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .slide {
+                border-top: 2px solid var(--bg-header);
+                border-right: none;
+            }
+        }
+    }
+}
+
+/* Máy tính bảng (từ 600px đến 992px) */
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+    .homePage {
+        grid-template-areas: 
+            'header header'
+            'slide main';
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: auto 1fr;
+    }
+}
+
+/* Laptop và màn hình lớn hơn (từ 992px trở lên) */
+@media only screen and (min-width: 992px) {
+    .homePage {
+        grid-template-areas: 
+            'header header header'
+            'slide main main';
+        grid-template-columns: 1fr 5fr;
+    }
+}

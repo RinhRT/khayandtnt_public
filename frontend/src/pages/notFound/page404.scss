@@ -1,0 +1,50 @@
+/* Trang 404 */
+.page-404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-root);
+    color: var(--text-primary);
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .page-404 h1 {
+    font-size: 5em;
+    font-weight: bold;
+    color: var(--highlight);
+    margin-bottom: 20px;
+  }
+  
+  .page-404 p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+  }
+  
+  .page-404 a {
+    text-decoration: none;
+    color: var(--button-primary);
+    font-size: 1.2em;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .page-404 a:hover {
+    color: var(--button-hover);
+  }
+  
+  /* Dark Mode */
+  [data-theme="dark"] .page-404 {
+    color: var(--text-primary);
+  }
+  
+  [data-theme="dark"] .page-404 a {
+    color: var(--button-primary);
+  }
+  
+  [data-theme="dark"] .page-404 a:hover {
+    color: var(--button-hover);
+  }
+  

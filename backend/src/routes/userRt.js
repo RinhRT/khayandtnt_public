@@ -1,0 +1,20 @@
+const Router = require('express').Router()
+const userCtr = require('../controllers/userCtr')
+const { check_File_XLSX_Validation } = require('../validations/checkFile')
+const upload = require('../configs/upload')
+const { check_data_login } = require('../validations/checkData')
+const JWT = require('../middlewares/generate_jwt')
+const levelCheck = require('../validations/levelAction')
+const userService = require('../services/users')
+
+Router.post('/upload', JWT.verifyTokenAccessToken, levelCheck.isManage, upload.array('file', 5), check_File_XLSX_Validation, userCtr.register)
+Router.post('/register', JWT.verifyTokenAccessToken, levelCheck.isManage, userCtr.register)
+Router.post('/delete', JWT.verifyTokenAccessToken, levelCheck.isManage, userCtr.delete)
+Router.patch('/update', userCtr.update)
+Router.post('/login', check_data_login, userCtr.login)
+Router.post('/', JWT.verifyTokenAccessToken, userCtr.find)
+Router.post('/get-all', JWT.verifyTokenAccessToken, userCtr.getAll)
+Router.post('/reset', userCtr.find_by_email)
+Router.get('/status-tray', userCtr.getStatusTray)
+
+module.exports= Router

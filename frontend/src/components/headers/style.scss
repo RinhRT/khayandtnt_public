@@ -1,0 +1,156 @@
+.header {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    display: grid;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 2;
+
+    a {
+        display: flex;
+        color: var(--text-primary);
+        font-weight: 700;
+        font-size: 1.125em;
+        align-items: center;
+    }
+
+    .header__logo{
+        width: 40px;
+        height: 40px;
+        grid-column-start: 1;
+        display: inline-flex;
+        align-items: center;
+
+        &__img  {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        &__img:hover {
+            transform: scale(.98);
+        }
+
+        &__title {
+            margin-left: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            user-select: none;
+            transition: all .2s ease-in-out;
+        }
+
+        &__title:hover {
+            cursor: pointer;
+            background-color: var(--button-secondary);
+        }
+    }
+
+    .header__nav {
+        grid-column-start: 2;
+        justify-self: end;
+        list-style: none;
+        display: flex;
+        align-items: center;
+
+        margin-right: -5px;
+
+        .item {
+            position: relative;
+            user-select: none;
+            display: flex;
+            align-content: center;
+            text-align: center;
+            justify-content: flex-end;
+            transition: all .2s ease-in-out;
+            padding: 10px;
+            border-radius: 5px;
+            min-width: 120px;
+
+            strong {
+                color: var(--link);
+            }
+
+            .listItem {
+                border-radius: 5px;
+                position: absolute;
+                width: 100%;
+                background-color: var(--bg-root);
+                border: 2px solid var(--border);
+
+                text-transform: capitalize;
+                top: 40px;
+                left: 0;
+                z-index: 60;
+
+                .menu_item {
+                    position: relative;
+                    user-select: none;
+                    display: flex;
+                    align-content: center;
+                    justify-content: space-between;
+                    transition: all .2s ease-in-out;
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 60;
+                }
+
+                .menu_item:hover {
+                    cursor: pointer;
+                    background-color: var(--button-secondary);
+                    opacity: .95;
+                    z-index: 60;
+                }
+            }
+        }
+
+        .item:hover {
+            cursor: pointer;
+            background-color: var(--button-secondary);
+            opacity: .95;
+            z-index: 60;
+        }
+    }
+}
+
+/* Điện thoại nhỏ (dưới 600px) */
+@media only screen and (max-width: 600px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .header__logo {
+        display: flex;
+        align-items: center;
+        width: auto;
+
+        &__title {
+            display: none;  /* Ẩn tên khi ở màn hình nhỏ */
+        }
+    }
+
+    .header__nav {
+        display: flex;
+        align-items: center;
+        margin: 0;
+
+        .item {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+
+            .listItem {
+                top: 35px; /* Đặt menu đăng xuất gần hơn */
+            }
+        }
+    }
+
+    .item p {
+        font-size: 1em;  /* Giảm kích thước chữ để phù hợp với điện thoại */
+    }
+}

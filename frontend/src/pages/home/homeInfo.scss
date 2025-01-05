@@ -1,0 +1,125 @@
+.home-info {
+    width: 100%;  /* Đảm bảo chiếm toàn bộ chiều rộng màn hình */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+
+    .analysis-title {
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: var(--text-primary);
+    }
+
+    .analysis-table {
+        width: 100%;  /* Đảm bảo bảng luôn chiếm toàn bộ chiều rộng */
+        border-collapse: collapse;
+        text-align: left;
+        box-sizing: border-box;
+
+        thead, tbody {
+            width: 100%;
+        }
+    }
+
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: var(--bg-root);
+    }
+
+    td {
+        position: relative;
+        word-wrap: break-word;
+    }
+
+    .percentage-bar {
+        height: 20px;
+        border-radius: 4px;
+        line-height: 20px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        overflow: hidden;
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 1024px) {
+        .analysis-title {
+            font-size: 22px;
+        }
+
+        th, td {
+            padding: 8px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .analysis-table {
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 6px;
+        }
+
+        .percentage-bar {
+            font-size: 12px;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .home-info {
+            padding: 10px; /* Giảm padding ở mobile để tận dụng không gian */
+        }
+
+        .analysis-title {
+            font-size: 20px;
+        }
+
+        .analysis-table {
+            font-size: 12px;
+            width: 100%; /* Chiếm hết chiều rộng */
+        }
+
+        th, td {
+            padding: 5px;
+        }
+
+        .percentage-bar {
+            height: 16px;
+            line-height: 16px;
+            font-size: 10px;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        /* Đảm bảo bảng có thể cuộn ngang */
+        .analysis-table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        th, td {
+            width: 130%;
+            min-width: 100px;
+            padding: 4px;
+        }
+
+        .percentage-bar {
+            font-size: 10px;
+        }
+
+        /* Tăng padding để có đủ khoảng trống */
+        .home-info {
+            padding: 5px;
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.qr-container {
+  background-color: var(--bg-root);
+  color: var(--text-primary);
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.qr-result {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: var(--bg-header);
+  color: var(--text-primary);
+}
+
+.qr-result span {
+  color: var(--highlight);
+  font-weight: bold;
+}
+
+.qr-waiting {
+  color: var(--text-secondary);
+}
+
+.qr-frame {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  border: 2px solid var(--highlight);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}

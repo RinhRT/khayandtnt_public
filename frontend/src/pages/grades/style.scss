@@ -1,0 +1,145 @@
+.gradePage {
+    width: 100%;
+    max-height: calc(100vh - 60px);
+    overflow-y: scroll; /* Thêm cuộn dọc */
+    overflow-x: hidden; /* Loại bỏ cuộn ngang nếu không cần */
+    scroll-behavior: smooth; /* Cuộn mượt mà */
+
+    /* Tùy chỉnh thanh cuộn */
+    ::-webkit-scrollbar {
+        width: 4px; /* Chiều rộng thanh cuộn */
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--bg-root); /* Màu nền của track */
+        border-radius: 10px; /* Bo góc */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--border); /* Màu thanh cuộn */
+        border-radius: 4px; /* Bo góc */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--button-secondary); /* Màu khi hover */
+    }
+
+    /* Tương thích với Firefox */
+    scrollbar-width: thin; /* Thanh cuộn mỏng */
+    scrollbar-color: var(--bg-header) #f0f0f0; /* Màu thanh cuộn và track */
+
+    /* Media Query cho màn hình điện thoại */
+    @media (max-width: 768px) {
+        max-height: calc(100vh - 50px); /* Điều chỉnh chiều cao cho màn hình điện thoại */
+        padding-bottom: 50px; /* Thêm padding dưới cùng để phần tử không bị che khuất */
+    }
+}
+
+.CardItem {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr;
+    margin-top: 15px;
+
+    .card {
+        width: 100%;
+        height: auto;
+
+        .card_header {
+            position: relative;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            padding: 8px 20px;
+            background-color: var(--bg-header);
+            font-size: 1em;
+            transition: all .3s ease-in-out;
+
+            h2 {
+                margin-bottom: 0;
+            }
+
+            .icon {
+                position: absolute;
+                right: 20px;
+            }
+            border-bottom: var(--border-bottom);
+        }
+
+        .list {
+            padding: 10px 35px;
+            min-height: 40px;
+            background-color: var(--bg-header);
+            box-shadow: var(--box-shadow);
+            border-bottom: 2px solid var(--border);
+            transition: all .3s ease-in-out;
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 10px 0;
+            
+                thead {
+                    background-color: var(--bg-root);
+                    color: var(--text-primary);
+                }
+    
+                th, td {
+                    padding: 12px 15px;
+                    text-align: center;
+                    border: var(--border-bottom);
+                }
+    
+                tbody tr:nth-child(even) {
+                    background-color: var(--border);
+                }
+    
+                tr {
+                    transition: all .3s ease-in-out;
+                }
+
+                tbody tr:hover {
+                    background-color: var(--bg-root);
+                }
+    
+                th {
+                    text-transform: uppercase;
+                }
+                  
+                td {
+                    color: var(--text-primary);
+                }
+            }
+        }
+        transition: all .3s ease-in-out;
+    }
+
+    .card:hover .card_header{
+        cursor: pointer;
+        background-color: var(--border);
+    }
+
+    .card.active .card_header {
+        background-color: var(--border);
+    }
+
+    .card.active .card_header .icon {
+        transform: rotate(180deg);
+    }
+
+    /* Media Query cho màn hình điện thoại */
+    @media (max-width: 768px) {
+        .card_header {
+            padding: 8px 10px; /* Giảm padding của card_header trên màn hình nhỏ */
+        }
+
+        .list {
+            padding: 8px 20px; /* Giảm padding của list để tiết kiệm không gian */
+        }
+    }
+}

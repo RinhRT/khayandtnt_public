@@ -1,0 +1,36 @@
+.slide {
+    position: relative;
+    width: 100%;
+    min-width: 150px;
+    // border-top: 2px solid var(--bg-header);
+    border-right: 2px solid var(--bg-header);
+    background-color: var(--bg-root);
+    padding-top: 15px;
+
+    .item {
+        width: 100%;
+        height: auto;
+        padding: 13px 8px 13px 20px;
+        font-size: 1.125em;
+        color: var(--text-primary);
+        transition: all .3s ease-in-out;
+    }
+
+    .item:hover {
+        cursor: pointer;
+        background-color: var(--button-secondary);
+        padding: 13px 8px 13px 35px;
+        box-shadow: var(--box-shadow);
+    }
+
+    .active .item {
+        color: var(--button-hover);
+        background-color: var(--button-secondary);
+        padding: 13px 8px 13px 35px;
+        box-shadow: var(--box-shadow);
+    }
+
+    .toggle-mobile {
+        display: none;
+    }
+}

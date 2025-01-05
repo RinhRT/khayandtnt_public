@@ -1,0 +1,126 @@
+.notification {
+  position: fixed;
+  top: 20px;
+  right: -350px; // Ban đầu ẩn khỏi màn hình
+  max-width: 300px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+  transform: translateX(0); // Định vị ban đầu
+  transition: 
+    transform 0.4s ease-in-out, 
+    opacity 0.4s ease-in-out, 
+    visibility 0.4s ease-in-out;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-20px); // Trượt vào từ phải
+    right: 20px; // Vị trí sau khi hiển thị
+  }
+
+  /* Các loại thông báo */
+  &.success {
+    background-color: #ffff; // Xanh lá
+    color: #28a745;
+  }
+
+  &.error {
+    background-color: #ffff; // Đỏ
+    color: #dc3545;
+  }
+
+  &.info {
+    background-color: #ffff; // Xanh dương
+    color: #17a2b8;
+  }
+
+  .notification-content {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+
+    .message {
+      text-align: left;
+      font-size: 1em;
+      font-weight: bold;
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+
+    .close-btn {
+      width: 30px;
+      background: none;
+      border: none;
+      color: inherit;
+      font-size: 1.5em;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--button-hover);
+      }
+    }
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .notification {
+    max-width: 90%;
+    right: -90%;
+    &.active {
+      right: 5%;
+      transform: translateX(0);
+    }
+
+    .notification-content {
+      .message {
+        font-size: 0.9em;
+      }
+
+      .icon {
+        font-size: 1.2em;
+      }
+
+      .close-btn {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .notification {
+    max-width: 95%;
+    right: -100%;
+    &.active {
+      right: 2.5%;
+      transform: translateX(0);
+    }
+
+    .notification-content {
+      .message {
+        font-size: 0.8em;
+      }
+
+      .icon {
+        font-size: 1em;
+      }
+
+      .close-btn {
+        font-size: 1em;
+      }
+    }
+  }
+}
